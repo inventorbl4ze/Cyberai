@@ -21,10 +21,23 @@ chatForm.addEventListener("submit", function(event) {
   addMessage(message, "user");
   userInput.value = "";
 
-  setTimeout(function() {
-    addMessage(
-      "I'm CYBERAI! Your message has been received. My AI connection is being configured.",
-      "bot"
-    );
-  }, 500);
-});
+  
+setTimeout(function() {
+  const question = message.toLowerCase();
+
+  let reply;
+
+  if (
+    question.includes("who created you") ||
+    question.includes("who is your creator") ||
+    question.includes("who made you") ||
+    question.includes("who developed you")
+  ) {
+    reply = "I was created by Oduyebo Abiola, the founder and developer of CYBERAI.";
+  } else {
+    reply = "I'm CYBERAI! Your message has been received. My AI connection is being configured.";
+  }
+
+  addMessage(reply, "bot");
+}, 500);
+  
